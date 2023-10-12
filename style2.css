@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    width: 5%;
+
+}
+
+
+button {
+    width: 40%;
+    padding: 5px;
+}
+
+.backbutton {
+    background-color: green;
+    color: white;
+}
+
+.submitbtn {
+    background-color: red;
+    color: white;
+    margin-left: 5%;
+}
+
+.back {
+    text-align: center;
+    margin-top: 20px;
+}
+
+label {
+    margin-left: 70px;
+}
+
+#checkbox {
+    margin-left: 28%;
+}
+
+
+
+/*jquery code*/
+
+
+
+#fname_error {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+#lname_error {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+#email_error {
+    display: none;
+    color: red;
+    text-align: center;
+
+}
+
+#mobile_error {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+#dateofBirth_error {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+#education_error {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+#myFile_error {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+#gender_error {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+#check_error {
+    display: none;
+    color: red;
+    text-align: center;
+}

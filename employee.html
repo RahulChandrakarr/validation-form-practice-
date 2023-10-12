@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+
+        <h1 style="margin-left:70px">Add Employee</h1>
+
+        <div class="row my-3">
+            <label for="FirstName" class="col-3">First Name:</label>
+            <input type="text" class="col-8" id="FirstName" name="First name" placeholder="Enter your first name">
+            <span id="fname_error">please enter min 3 and max 10 character </span>
+            <!-- <link rel="stylesheet" href="style2.css"> -->
+        </div>
+
+
+        <div class="row my-3">
+            <label for="LastName" class="col-3">Last Name:</label>
+            <input type="text" class="col-8" id="LastName" name="Last name" placeholder="Enter your last name">
+            <span id="lname_error">please Enter lastname min 2 and max 30 character </span>
+        </div>
+
+
+
+        <div class="row my-3">
+            <label for="Email" class="col-3">Email:</label>
+            <input type="Email" class="col-8" id="Email" name="Email" placeholder="Enter email address">
+            <span id="email_error">please Enter your email min 5 and max 50 character</span>
+        </div>
+
+
+
+        <div class=" row my-3">
+            <label for="mobile" class="col-3">mobile:</label>
+            <input type="text" class="col-8" id="mobile" name="mobile" placeholder="Enter mobile number">
+            <span id="mobile_error">Invalid mobile number. It should start with 6 and have 10 digits</span>
+        </div>
+
+        <div class=" row my-3">
+            <label for="dateofBirth" class="col-3">date of Birth:</label>
+            <input type="date" class="col-8" id="dateofBirth" name="date of Birth" placeholder="mm/dd/yy">
+            <span id="dateofBirth_error">please Enter valid date of birth</span>
+        </div>
+
+        <div class=" row my-3">
+            <label for="education" class="col-3"> education:</label>
+            <select class="col-8" id="education">
+                <option value="">Course</option>
+                <option value="BCA">BCA</option>
+                <option value="BBA">BBA</option>
+                <option value="BTech">BTech</option>
+                <option value="MBA">MBA</option>
+                <option value="MCA">MCA</option>
+                <option value="MTech">MTech</option>
+            </select>
+            <span id="education_error">please select your qualification</span>
+        </div>
+
+
+        <div class=" row my-3">
+            <label for="myFile" class="col-3"> upload image: </label>
+            <input type="file" class="image col-8" id="myFile" name="filename">
+            <span id="myFile_error">please upload your img</span>
+        </div>
+
+        <div class="row my-3">
+            <label for="gender" class="col-3">Gender:</label>
+            <select name="gender" id="gender" class="col-8">
+                <option value="">gender</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+            </select>
+            <span id="gender_error">please select gender</span>
+        </div>
+
+
+        <div>
+            <input type="checkbox" id="checkbox" name="checkbox" />
+            <label for="checkbox">I agree to the terms and conditions </label>
+            <span id="check_error">please checked</span>
+        </div>
+
+
+        <div class="back">
+            <button type="button" class="backbutton">Back to list</button>
+            <button class="submitbtn" onclick="submit()"> submit </button>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+
+    </div>
+
+</body>
+<script>
+
+    function submit() {
+
+        //let FirstName = $("#FirstName").val();
+        // let FirstNameRegex = /^[A-Za-z'-]+$/;
+
+
+        let FirstName = $("#FirstName").val();
+
+        let minLength = 3; // Minimum length
+        let maxLength = 10; // Maximum length
+
+        if (FirstName === '' || FirstName.length < minLength || FirstName.length > maxLength) {
+            $("#fname_error").show();
+        }
+        else {
+            $("#fname_error").hide();
+        }
+
+
+        let LastName = $("#LastName").val();
+
+
+        if (LastName === '' || LastName.length < minLength || LastName.length > maxLength) {
+            $("#lname_error").show();
+        }
+        else {
+            $("#lname_error").hide();
+        }
+
+
+
+        let Email = $("#Email").val();
+        // let EmailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        let EmailRegex = /^.{5,50}@[\w\.-]+\.\w+$/;
+        
+        if (EmailRegex.test(Email)) {
+            $("#email_error").hide();
+        }
+
+        else {
+            $("#email_error").show();
+        }
+
+
+        let mobile = $("#mobile").val();
+        // let mobileRegex = /^[0-9]{10}$/;
+        let mobileRegex = /^[6789]\d{9}$/;
+        if (mobileRegex.test(mobile)) {
+            $("#mobile_error").hide();
+        }
+
+        else {
+            $("#mobile_error").show();
+        }
+
+
+        let dateofBirth = $("#dateofBirth").val();
+
+        // alert(dateofBirth);
+        // let dateofBirthRegex = /^(\d{2})\/(\d{2})\/(\d{2})$/;
+
+        if (dateofBirth == '') {
+            $("#dateofBirth_error").show();
+        }
+        else {
+            $("#dateofBirth_error").hide();
+        }
+
+        let education = $("#education").val();
+        // alert(education);
+        // let educationRegex = /^[A-Za-z'-]+$/;
+
+
+        if (education == '') {
+            $("#education_error").show();
+
+        }
+
+        else {
+            $("#education_error").hide();
+        }
+
+        let myFile = $("#myFile").val();
+
+        if (myFile == '') {
+            $("#myFile_error").show();
+
+        }
+        else {
+            $("#myFile_error").hide();
+        }
+
+
+
+        let gender = $("#gender").val();
+
+        if (gender == '') {
+            $("#gender_error").show();
+        }
+        else {
+            $("#gender_error").hide();
+        }
+
+        var checkbox = $("#checkbox");
+
+        if (checkbox.is(":checked")) {
+            $("#check_error").hide();
+
+        }
+        else {
+            $("#check_error").show();
+        }
+
+
+
+
+    }
+</script>
+
+</html>
